@@ -1,0 +1,66 @@
+{
+    "name": "Firefly III csv Importer",
+    "id": "firefly-iii-csv-importer",
+    "packaging_format": 1,
+    "description": {
+        "en": "Firefly III CSV Importer let you import CSV files into your Firefly III app.",
+        "fr": "Firefly III CSV Importer permet d'importer des fichiers CSV dans votre application Firefly III."
+    },
+    "version": "1.0.8",
+    "url": "https://firefly-iii.org/",
+    "license": "GPL v3",
+    "maintainer": {
+        "name": "Anmol Sharma",
+        "email": "anmol@datamol.org",
+        "url": "https://datamol.org"
+    },
+    "requirements": {
+        "yunohost": ">= 3.5.0"
+    },
+    "multi_instance": true,
+    "services": [
+        "nginx",
+        "php7.3-fpm"
+    ],
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "type": "domain",
+                "ask": {
+                    "en": "Choose a domain name for Firefly III CSV Importer",
+                    "fr": "Choisissez un nom de domaine pour Firefly III CSV Importer"
+                },
+                "example": "example.com"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "ask": {
+                    "en": "Choose a path for Firefly III CSV Importer",
+                    "fr": "Choisissez un chemin pour Firefly III CSV Importer"
+                },
+                "example": "/example",
+		"default": "/csv-importer"
+            },
+            {
+                "name": "admin",
+                "type": "user",
+                "ask": {
+                    "en": "Choose an admin user (should be a YunoHost registered user)",
+                    "fr": "Choisissez l’administrateur (should be a YunoHost registered user)"
+                },
+                "example": "johndoe"
+            },
+            {
+                "name": "is_public",
+                "type": "boolean",
+                "ask": {
+                    "en": "Is it a public application?",
+                    "fr": "Est-ce une application publique ?"
+                },
+                "default": true
+            }
+        ]
+    }
+}

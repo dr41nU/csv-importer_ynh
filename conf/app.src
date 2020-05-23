@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/firefly-iii/csv-importer/archive/1.0.8.tar.gz
+SOURCE_SUM=c0cbdb2a786e09ed6f7b9fc43749f0dd11132fc1fff5a865224f829343630528
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=tar.gz
+SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=csv-importer-1.0.8.tar.gz
