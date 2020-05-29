@@ -7,9 +7,6 @@
 #=================================================
 
 source _common.sh
-source ynh_add_extra_apt_repos__3
-source ynh_install_php__3
-source ynh_composer
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -121,6 +118,8 @@ sudo  cp ../conf/.env $final_path/.env
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
+
+firefly_path=$(ynh_app_setting_get --app=firefly-iii --key=final_path)
 
 ynh_replace_string "random_key" "$random_key" "$final_path/.env"
 ynh_replace_string "yunomail"   "$email"      "$final_path/.env"

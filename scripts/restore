@@ -97,15 +97,6 @@ ynh_script_progression --message="Reinstalling dependencies..." --time --weight=
 ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
-# RESTORE THE MYSQL DATABASE
-#=================================================
-ynh_script_progression --message="Restoring the MySQL database..." --time --weight=1
-
-db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
-ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
-ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < ./db.sql
-
-#=================================================
 # ADVERTISE SERVICE IN ADMIN PANEL
 #=================================================
 
@@ -123,12 +114,6 @@ ynh_restore_file --origin_path="/etc/logrotate.d/$app"
 
 # Install via composer
 ynh_install_composer --phpversion="$phpversion"
-
-#cd $final_path && sudo /usr/bin/php$phpversion artisan migrate --env=production --force
-#cd $final_path && sudo /usr/bin/php$phpversion artisan cache:clear
-#cd $final_path && sudo /usr/bin/php$phpversion artisan firefly:upgrade-database
-#cd $final_path && sudo /usr/bin/php$phpversion artisan firefly:verify
-#cd $final_path && sudo /usr/bin/php$phpversion artisan passport:install
 
 cd $final_path && php$phpversion artisan migrate:refresh --seed && cd $YNH_CWD 
 cd $final_path && php$phpversion artisan firefly-iii:upgrade-database  && cd $YNH_CWD 
