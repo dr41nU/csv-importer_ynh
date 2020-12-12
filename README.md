@@ -1,3 +1,5 @@
+_Broken and unmaintened, please do not use_
+
 <p align="center"><img src="https://firefly-iii.org/static/img/logo-small-new.png"></p>
 
 # Firefly III CSV importer v1.0.8 for YunoHost
